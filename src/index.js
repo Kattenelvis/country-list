@@ -38,19 +38,37 @@ const App = () => {
     filterCountries();
   };
 
+  const UlLangElement = ({ languages }) => {
+    return (
+      <ul>
+        {languages.map((lang, index) => {
+          return <li key={index}>{lang.name}</li>;
+        })}
+      </ul>
+    );
+  };
+
   const showCountryData = () => {
     if (visibleCountries.length === 1) {
+      let selectedCountry = visibleCountries[0];
+      if (selectedCountry.gini === null) selectedCountry.gini = "No info";
       return (
         <div className="showCountry">
-          <h1>{visibleCountries[0].name}</h1>
+          <h1>{selectedCountry.name}</h1>
           <ul className="showCountryList">
             <li>
-              Population:{" "}
-              {Math.round(visibleCountries[0].population / 1000) * 1000}
+              Population: {Math.round(selectedCountry.population / 1000) * 1000}
             </li>
-            <li>Capital: {visibleCountries[0].capital}</li>
+            <li>Capital: {selectedCountry.capital}</li>
+            <li>Area: {selectedCountry.area}km²</li>
+            <li>Gini: {selectedCountry.gini}</li>
+            <li>Native name: {selectedCountry.nativeName}</li>
+            <li>
+              Languages:
+              {UlLangElement(selectedCountry)}
+            </li>
           </ul>
-          <img src={visibleCountries[0].flag} alt="" width="250" />
+          <img src={selectedCountry.flag} alt="" width="250" />
         </div>
       );
     }
