@@ -1,25 +1,99 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: "Montserrat", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-left: 20px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #b5e1ff;
+  letter-spacing: 0.02em;
+  padding: 0;
+  margin: 0;
+}
+
+.header {
+  border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
+  padding: 35px 0;
+}
+
+.header h1 {
+  max-width: 264px;
+  margin: auto;
+}
+
+.header .search {
+  margin-top: 10px;
+  -webkit-transition: max-width 0.3s;
+  transition: max-width 0.3s;
+}
+
+.header .search .searchBar {
+  position: absolute;
+  left: 41%;
+  background: #ebebeb;
+  font-size: 1.1em;
+  padding: 0px 0px;
+  -webkit-transition: padding 0.3s, background 0.2s, color 0.4s, left 0.3s;
+  transition: padding 0.3s, background 0.2s, color 0.4s, left 0.3s;
+  border-radius: 5px;
+  text-align: center;
+  border: none;
+  color: #a2a2a2;
+}
+
+.header .search .searchBar:hover {
+  color: black;
+  padding: 5px 40px;
+  background: white;
+  left: 38%;
+}
+
+.header .search .searchBar:focus {
+  color: black;
+  padding: 5px 40px;
+  background: white;
+  left: 38%;
 }
 
 .coutryList {
   list-style-type: none;
   font-size: 18px;
+  margin-top: 70px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
 }
 
-.countryLi {
+.coutryList .countryLi {
   padding: 4px;
+  background: #f2f2f9;
+  width: 80%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+.showCountry {
+  background: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.showCountry h1 {
+  font-size: 2em;
+}
+
+.showCountryList li:nth-child() {
+  color: red;
 }
 
 .btn {
-  padding: 5px 20px;
-  border: solid 1px white;
-  border-radius: 8px;
-  background: #e67e22;
-  font-size: 15px;
+  border: none;
+  background-color: #69c3ff;
+  padding: 5px 18px;
+  border-radius: 5px;
+  font-weight: 600;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
