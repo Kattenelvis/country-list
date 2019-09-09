@@ -1,0 +1,26 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-left: 20px;
+}
+
+.coutryList {
+  list-style-type: none;
+  font-size: 18px;
+}
+
+.countryLi {
+  padding: 4px;
+}
+
+.btn {
+  padding: 5px 20px;
+  border: solid 1px white;
+  border-radius: 8px;
+  background: #e67e22;
+  font-size: 15px;
+}
