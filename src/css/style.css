@@ -16,61 +16,107 @@ body {
   padding: 35px 0;
 }
 
-.header h1 {
+.header .mainHeader {
   max-width: 264px;
   margin: auto;
 }
 
-.header .search {
-  margin-top: 10px;
+.header .mainHeader .search {
+  height: 23px;
   -webkit-transition: max-width 0.3s;
   transition: max-width 0.3s;
 }
 
-.header .search .searchBar {
-  position: absolute;
-  left: 41%;
+.header .mainHeader .search .searchBar {
   background: #ebebeb;
   font-size: 1.1em;
-  padding: 0px 0px;
   -webkit-transition: padding 0.3s, background 0.2s, color 0.4s, left 0.3s;
   transition: padding 0.3s, background 0.2s, color 0.4s, left 0.3s;
   border-radius: 5px;
   text-align: center;
   border: none;
+  padding: 5px 40px;
   color: #a2a2a2;
 }
 
-.header .search .searchBar:hover {
+.header .mainHeader .search .searchBar:hover {
   color: black;
-  padding: 5px 40px;
   background: white;
   left: 38%;
 }
 
-.header .search .searchBar:focus {
+.header .mainHeader .search .searchBar:focus {
   color: black;
-  padding: 5px 40px;
   background: white;
   left: 38%;
 }
 
-.coutryList {
+.CountryDiv {
+  width: 80%;
+  margin: auto;
+}
+
+.CountryDiv .coutryList {
   list-style-type: none;
   font-size: 18px;
   margin-top: 70px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
-.coutryList .countryLi {
-  padding: 4px;
+.CountryDiv .coutryList .countryLi {
+  margin: 10px;
   background: #f2f2f9;
-  width: 80%;
-  margin-bottom: 20px;
   border-radius: 5px;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.CountryDiv .coutryList .countryLiTop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 5px;
+}
+
+.CountryDiv .coutryList .countryLiTop img {
+  margin: 5px;
+  -webkit-box-flex: 0.05;
+      -ms-flex-positive: 0.05;
+          flex-grow: 0.05;
+}
+
+.CountryDiv .coutryList .countryLiTop p {
+  margin: 5px;
+  margin-left: -38px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.CountryDiv .coutryList .countryLi button {
+  width: 40%;
+  margin: auto;
+  margin-bottom: 1em;
 }
 
 .showCountry {

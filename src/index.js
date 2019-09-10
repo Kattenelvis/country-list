@@ -10,8 +10,10 @@ const App = () => {
   const showCountries = countryArray =>
     countryArray.map(country => (
       <li key={country.numericCode} className="countryLi">
-        <img src={country.flag} alt="" width="30" />
-        <p className="countrName">{country.name}</p>
+        <div className="countryLiTop">
+          <img src={country.flag} alt="" width="30" />
+          <p>{country.name}</p>
+        </div>
         <button
           className="btn"
           value={country.name}
@@ -100,12 +102,14 @@ const App = () => {
   return (
     <main>
       <div className="header">
-        <h1>Country Search</h1>
-        <div className="search">
-          <input onChange={onSearchValueChanged} className="searchBar" />
+        <div className="mainHeader">
+          <h1>Country Search</h1>
+          <div className="search">
+            <input onChange={onSearchValueChanged} className="searchBar" />
+          </div>
         </div>
       </div>
-      <div>
+      <div className="CountryDiv">
         <ul className="coutryList">{showCountries(visibleCountries)}</ul>
         <div>{showCountryData()}</div>
       </div>

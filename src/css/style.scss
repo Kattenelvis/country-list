@@ -17,58 +17,86 @@ body {
   border-bottom: rgba(0, 0, 0, 00.2) 1px solid;
   padding: 35px 0;
 
-  h1 {
+  .mainHeader {
+    h1 {
+    }
     max-width: 264px;
     margin: auto;
-  }
+    .search {
+      height: 23px;
+      transition: max-width 0.3s;
 
-  .search {
-    margin-top: 10px;
-    transition: max-width 0.3s;
-
-    .searchBar {
-      position: absolute;
-      left: 41%;
-
-      background: darken(white, 8%);
-      font-size: 1.1em;
-      padding: 0px 0px;
-      transition: padding 0.3s, background 0.2s, color 0.4s, left 0.3s;
-      border-radius: $bRad;
-      text-align: center;
-      border: none;
-      color: #a2a2a2;
-
-      @mixin onAction {
-        color: black;
+      .searchBar {
+        background: darken(white, 8%);
+        font-size: 1.1em;
+        transition: padding 0.3s, background 0.2s, color 0.4s, left 0.3s;
+        border-radius: $bRad;
+        text-align: center;
+        border: none;
         padding: 5px 40px;
-        background: white;
-        left: 38%;
-      }
-      &:hover {
-        @include onAction;
-      }
-      &:focus {
-        @include onAction;
+        color: #a2a2a2;
+
+        @mixin onAction {
+          color: black;
+
+          background: white;
+          left: 38%;
+        }
+        &:hover {
+          @include onAction;
+        }
+        &:focus {
+          @include onAction;
+        }
       }
     }
   }
 }
 
-.coutryList {
-  list-style-type: none;
-  font-size: 18px;
-  margin-top: 70px;
+.CountryDiv {
+  width: 80%;
+  margin: auto;
+  .coutryList {
+    list-style-type: none;
+    font-size: 18px;
+    margin-top: 70px;
 
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    object-fit: cover;
 
-  .countryLi {
-    padding: 4px;
-    background: #f2f2f9;
-    width: 80%;
-    margin-bottom: 20px;
-    border-radius: $bRad;
+    .countryLi {
+      margin: 10px;
+      background: #f2f2f9;
+      border-radius: $bRad;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      &Top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px;
+
+        img {
+          margin: 5px;
+          flex-grow: 0.05;
+        }
+        p {
+          margin: 5px;
+          margin-left: -38px;
+          flex-grow: 1;
+        }
+      }
+
+      button {
+        width: 40%;
+        margin: auto;
+        margin-bottom: 1em;
+      }
+    }
   }
 }
 
