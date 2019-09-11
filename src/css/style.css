@@ -22,7 +22,6 @@ body {
 }
 
 .topHeader .blueRect {
-  position: absolute;
   width: 100%;
   height: 57px;
   left: 0px;
@@ -30,16 +29,16 @@ body {
   background: #b5e1ff;
 }
 
-.mainHeader {
-  max-width: 300px;
-  margin: auto;
-}
-
 .mainHeader .search {
   height: 23px;
+  width: 60%;
+  margin: auto;
+  margin-top: 68px;
 }
 
 .mainHeader .search .searchBar {
+  height: 40px;
+  width: 100%;
   background: #ebebeb;
   font-size: 1.1em;
   -webkit-transition: background 0.25s, color 0.25s;
@@ -48,8 +47,6 @@ body {
   text-align: center;
   border: none;
   color: #a2a2a2;
-  width: 180%;
-  margin: auto;
 }
 
 .mainHeader .search .searchBar:hover {
@@ -77,6 +74,7 @@ body {
       grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   -o-object-fit: cover;
      object-fit: cover;
+  padding-left: 0;
 }
 
 .CountryDiv .coutryList .countryLi {
@@ -95,8 +93,8 @@ body {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   cursor: pointer;
-  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
   -webkit-transition: -webkit-box-shadow 0.3s;
   transition: -webkit-box-shadow 0.3s;
   transition: box-shadow 0.3s;
@@ -104,8 +102,8 @@ body {
 }
 
 .CountryDiv .coutryList .countryLi:hover {
-  -webkit-box-shadow: 1px 1px 2px #69c3ff;
-          box-shadow: 1px 1px 2px #69c3ff;
+  -webkit-box-shadow: 1px 1px 3px #69c3ff;
+          box-shadow: 1px 1px 3px #69c3ff;
 }
 
 .CountryDiv .coutryList .countryLiTop {
@@ -144,13 +142,28 @@ body {
 
 .showCountry {
   background: white;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  padding: 70px 70px;
+  width: 80%;
+  height: 80%;
+  -webkit-box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
+  overflow: auto;
+  margin: auto;
+}
+
+.showCountry img {
+  float: left;
 }
 
 .showCountry h1 {
   font-size: 2em;
+  margin: auto;
+  float: right;
+}
+
+.showCountryList {
+  float: left;
+  list-style-type: none;
 }
 
 .showCountryList li:nth-child() {

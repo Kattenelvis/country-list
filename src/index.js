@@ -46,12 +46,14 @@ const App = () => {
     );
   };
 
+  ////The interface when you interact with a country
   const showCountryData = () => {
     if (visibleCountries.length === 1) {
       let selectedCountry = visibleCountries[0];
       if (selectedCountry.gini === null) selectedCountry.gini = "No info";
       return (
         <div className="showCountry">
+          <img src={selectedCountry.flag} alt="" width="250" />
           <h1>{selectedCountry.name}</h1>
           <ul className="showCountryList">
             <li>
@@ -66,7 +68,6 @@ const App = () => {
               {UlLangElement(selectedCountry)}
             </li>
           </ul>
-          <img src={selectedCountry.flag} alt="" width="250" />
         </div>
       );
     }

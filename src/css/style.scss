@@ -26,7 +26,7 @@ body {
   }
 
   .blueRect {
-    position: absolute;
+    // position: absolute;
     width: 100%;
     height: 57px;
     left: 0px;
@@ -38,13 +38,14 @@ body {
 
 //Search bar and filter button
 .mainHeader {
-  max-width: 300px;
-  margin: auto;
-
   .search {
     height: 23px;
-
+    width: 60%;
+    margin: auto;
+    margin-top: 68px;
     .searchBar {
+      height: 40px;
+      width: 100%;
       background: darken(white, 8%);
       font-size: 1.1em;
       transition: background 0.25s, color 0.25s;
@@ -52,8 +53,6 @@ body {
       text-align: center;
       border: none;
       color: #a2a2a2;
-      width: 180%;
-      margin: auto;
 
       @mixin onAction {
         color: black;
@@ -81,6 +80,7 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
     object-fit: cover;
+    padding-left: 0;
 
     .countryLi {
       margin: 10px;
@@ -91,11 +91,11 @@ body {
       flex-direction: column;
       justify-content: space-evenly;
       cursor: pointer;
-      box-shadow: 1px 1px 2px rgba(0, 0, 0, 00.2);
+      box-shadow: 2px 1px 5px rgba(0, 0, 0, 00.2);
       transition: box-shadow 0.3s;
 
       &:hover {
-        box-shadow: 1px 1px 2px #69c3ff;
+        box-shadow: 1px 1px 3px #69c3ff;
       }
 
       &Top {
@@ -127,16 +127,31 @@ body {
 //The interface when you interact with a country
 .showCountry {
   background: white;
-  display: flex;
+  padding: 70px 70px;
+  width: 80%;
+  height: 80%;
+  box-shadow: 2px 1px 5px rgba(0, 0, 0, 00.2);
+  overflow: auto;
+  margin: auto;
+  img {
+    float: left;
+  }
 
   h1 {
     font-size: 2em;
+    margin: auto;
+    float: right;
   }
 
   &List {
+    float: left;
+    list-style-type: none;
     li {
       &:nth-child() {
         color: red;
+      }
+      ul {
+        // list-style-type: none;
       }
     }
   }
