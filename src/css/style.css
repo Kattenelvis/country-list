@@ -5,50 +5,61 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  background: #b5e1ff;
+  background: #fbfbfb;
   letter-spacing: 0.02em;
   padding: 0;
   margin: 0;
 }
 
-.header {
-  border-bottom: rgba(0, 0, 0, 0.2) 1px solid;
-  padding: 35px 0;
+.topHeader h1 {
+  position: absolute;
+  height: 49px;
+  left: 18px;
+  top: -0.232em;
+  color: white;
+  font-weight: 900;
+  font-size: 2.5em;
 }
 
-.header .mainHeader {
-  max-width: 264px;
+.topHeader .blueRect {
+  position: absolute;
+  width: 100%;
+  height: 57px;
+  left: 0px;
+  top: 0px;
+  background: #b5e1ff;
+}
+
+.mainHeader {
+  max-width: 300px;
   margin: auto;
 }
 
-.header .mainHeader .search {
+.mainHeader .search {
   height: 23px;
-  -webkit-transition: max-width 0.3s;
-  transition: max-width 0.3s;
 }
 
-.header .mainHeader .search .searchBar {
+.mainHeader .search .searchBar {
   background: #ebebeb;
   font-size: 1.1em;
-  -webkit-transition: padding 0.3s, background 0.2s, color 0.4s, left 0.3s;
-  transition: padding 0.3s, background 0.2s, color 0.4s, left 0.3s;
+  -webkit-transition: background 0.25s, color 0.25s;
+  transition: background 0.25s, color 0.25s;
   border-radius: 5px;
   text-align: center;
   border: none;
-  padding: 5px 40px;
   color: #a2a2a2;
+  width: 180%;
+  margin: auto;
 }
 
-.header .mainHeader .search .searchBar:hover {
+.mainHeader .search .searchBar:hover {
   color: black;
   background: white;
-  left: 38%;
 }
 
-.header .mainHeader .search .searchBar:focus {
+.mainHeader .search .searchBar:focus {
   color: black;
   background: white;
-  left: 38%;
 }
 
 .CountryDiv {
@@ -62,15 +73,15 @@ body {
   margin-top: 70px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  -ms-grid-columns: (minmax(380px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 .CountryDiv .coutryList .countryLi {
   margin: 10px;
-  background: #f2f2f9;
+  background: #fff;
   border-radius: 5px;
   text-align: center;
   display: -webkit-box;
@@ -83,6 +94,18 @@ body {
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
+  cursor: pointer;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  -webkit-transition: -webkit-box-shadow 0.3s;
+  transition: -webkit-box-shadow 0.3s;
+  transition: box-shadow 0.3s;
+  transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
+}
+
+.CountryDiv .coutryList .countryLi:hover {
+  -webkit-box-shadow: 1px 1px 2px #69c3ff;
+          box-shadow: 1px 1px 2px #69c3ff;
 }
 
 .CountryDiv .coutryList .countryLiTop {

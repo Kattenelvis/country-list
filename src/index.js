@@ -8,19 +8,15 @@ let currentSearchTerm = "";
 
 const App = () => {
   const showCountries = countryArray =>
-    countryArray.map(country => (
-      <li key={country.numericCode} className="countryLi">
+    countryArray.map(({ numericCode, flag, name }) => (
+      <li key={numericCode} className="countryLi">
         <div className="countryLiTop">
-          <img src={country.flag} alt="" width="30" />
-          <p>{country.name}</p>
+          <img src={flag} alt="" width="30" />
+          <p>{name}</p>
         </div>
-        <button
-          className="btn"
-          value={country.name}
-          onClick={onSearchValueChanged}
-        >
-          Show
-        </button>
+        {/* <button className="btn" value={name} onClick={onSearchValueChanged}> */}
+        {/* Show */}
+        {/* </button> */}
       </li>
     ));
 
@@ -102,10 +98,20 @@ const App = () => {
   return (
     <main>
       <div className="header">
-        <div className="mainHeader">
+        <div className="topHeader">
+          <div className="blueRect"></div>
           <h1>Country Search</h1>
+        </div>
+        <div className="mainHeader">
           <div className="search">
-            <input onChange={onSearchValueChanged} className="searchBar" />
+            <input
+              type="search"
+              onChange={onSearchValueChanged}
+              className="searchBar"
+              maxLength="100"
+              placeholder="Search among 249 countries and territories"
+              spellCheck="false"
+            />
           </div>
         </div>
       </div>
