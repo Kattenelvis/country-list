@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./css/style.css";
 import ReactDOM from "react-dom";
+import Footer from "./footer";
 
 const countryList = [249];
 let currentSearchTerm = "";
@@ -9,14 +10,16 @@ let currentSearchTerm = "";
 const App = () => {
   const showCountries = countryArray =>
     countryArray.map(({ numericCode, flag, name }) => (
-      <li key={numericCode} className="countryLi">
+      <li
+        key={numericCode}
+        className="countryLi"
+        value={name}
+        onClick={onSearchValueChanged}
+      >
         <div className="countryLiTop">
           <img src={flag} alt="" width="30" />
           <p>{name}</p>
         </div>
-        {/* <button className="btn" value={name} onClick={onSearchValueChanged}> */}
-        {/* Show */}
-        {/* </button> */}
       </li>
     ));
 
@@ -32,7 +35,9 @@ const App = () => {
   useEffect(fetchCountries, []);
 
   const onSearchValueChanged = event => {
-    currentSearchTerm = event.target.value;
+    if (event.target.value === undefined)
+      currentSearchTerm = event.currentTarget.textContent;
+    else currentSearchTerm = event.target.value;
     filterCountries();
   };
 
@@ -46,7 +51,7 @@ const App = () => {
     );
   };
 
-  ////The interface when you interact with a country
+  //The interface when you interact with a country
   const showCountryData = () => {
     if (visibleCountries.length === 1) {
       let selectedCountry = visibleCountries[0];
@@ -120,6 +125,8 @@ const App = () => {
         <ul className="coutryList">{showCountries(visibleCountries)}</ul>
         <div>{showCountryData()}</div>
       </div>
+
+      <Footer />
     </main>
   );
 };

@@ -24,16 +24,16 @@ body {
     font-weight: 900;
     font-size: 2.5em;
   }
+}
 
-  .blueRect {
-    // position: absolute;
-    width: 100%;
-    height: 57px;
-    left: 0px;
-    top: 0px;
-
-    background: #b5e1ff;
-  }
+.blueRect {
+  // position: absolute;
+  width: 100%;
+  height: 57px;
+  left: 0px;
+  top: 0px;
+  color: white;
+  background: #b5e1ff;
 }
 
 //Search bar and filter button
