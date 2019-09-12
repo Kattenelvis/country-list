@@ -3,11 +3,12 @@ import axios from "axios";
 import "./css/style.css";
 import ReactDOM from "react-dom";
 import Footer from "./footer";
+// import { Header, onSearchValueChanged } from "./header/header.js";
 
 const countryList = [249];
 let currentSearchTerm = "";
-
 const App = () => {
+  const [visibleCountries, setVisibleCountries] = useState([]);
   const showCountries = countryArray =>
     countryArray.map(({ numericCode, flag, name }) => (
       <li
@@ -23,23 +24,20 @@ const App = () => {
       </li>
     ));
 
-  const [visibleCountries, setVisibleCountries] = useState([]);
-
   const fetchCountries = () => {
     axios.get("https://restcountries.eu/rest/v2/all").then(response => {
       countryList.fill(response.data);
       setVisibleCountries(response.data);
+
+      //Fixing all the edge cases
+      countryList[0][214].name = " Sudan ";
+      countryList[0][161].name = " Niger ";
+      countryList[0][64].name = " Dominica ";
+      countryList[0][13].name = " Australia ";
     });
   };
 
   useEffect(fetchCountries, []);
-
-  const onSearchValueChanged = event => {
-    if (event.target.value === undefined)
-      currentSearchTerm = event.currentTarget.textContent;
-    else currentSearchTerm = event.target.value;
-    filterCountries();
-  };
 
   const UlLangElement = ({ languages }) => {
     return (
@@ -78,56 +76,59 @@ const App = () => {
     }
   };
 
+  const onSearchValueChanged = event => {
+    if (event.target.value === undefined)
+      currentSearchTerm = event.currentTarget.textContent;
+    else currentSearchTerm = event.target.value;
+    filterCountries();
+  };
+
   const filterCountries = () => {
     setVisibleCountries(
       countryList[0].filter(
-        country =>
-          country.name
-            .toLowerCase()
-            .includes(currentSearchTerm.toLowerCase()) ||
-          country.region
-            .toLowerCase()
-            .includes(currentSearchTerm.toLowerCase()) ||
-          country.subregion
-            .toLowerCase()
-            .includes(currentSearchTerm.toLowerCase()) ||
-          country.alpha2Code
-            .toLowerCase()
-            .includes(currentSearchTerm.toLowerCase()) ||
-          country.alpha3Code
-            .toLowerCase()
-            .includes(currentSearchTerm.toLowerCase())
+        ({ name, region, subregion, alpha2Code, alpha3Code }) =>
+          contains(name, currentSearchTerm) ||
+          contains(region, currentSearchTerm) ||
+          contains(subregion, currentSearchTerm) ||
+          contains(alpha2Code, currentSearchTerm) ||
+          contains(alpha3Code, currentSearchTerm)
       )
     );
   };
 
+  const contains = (a, term) => {
+    return a.toLowerCase().includes(term.toLowerCase());
+  };
+
   return (
-    <main>
-      <div className="header">
-        <div className="topHeader">
-          <div className="blueRect"></div>
-          <h1>Country Search</h1>
-        </div>
-        <div className="mainHeader">
-          <div className="search">
-            <input
-              type="search"
-              onChange={onSearchValueChanged}
-              className="searchBar"
-              maxLength="100"
-              placeholder="Search among 249 countries and territories"
-              spellCheck="false"
-            />
+    <div className="contentWrap">
+      <main>
+        <div className="header">
+          <div className="topHeader">
+            <div className="blueRect"></div>
+            <h1>Country Search</h1>
+          </div>
+          <div className="mainHeader">
+            <div className="search">
+              <input
+                type="search"
+                onChange={onSearchValueChanged}
+                className="searchBar"
+                maxLength="100"
+                placeholder="Search among 249 countries and territories"
+                spellCheck="false"
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <div className="CountryDiv">
-        <ul className="coutryList">{showCountries(visibleCountries)}</ul>
-        <div>{showCountryData()}</div>
-      </div>
+        <div className="CountryDiv">
+          <ul className="coutryList">{showCountries(visibleCountries)}</ul>
+          <div>{showCountryData()}</div>
+        </div>
+      </main>
 
       <Footer />
-    </main>
+    </div>
   );
 };
 
