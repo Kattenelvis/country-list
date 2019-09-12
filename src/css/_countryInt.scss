@@ -1,0 +1,31 @@
+//The interface when you interact with a country
+
+.showCountry {
+  background: white;
+  padding: 20px;
+  width: 80%;
+  height: 80%;
+  box-shadow: 2px 1px 5px rgba(0, 0, 0, 00.2);
+  overflow: auto;
+  margin: auto;
+
+  .imgContainer {
+    width: 50%;
+    margin: auto;
+    img {
+      float: left;
+      max-width: 100%;
+    }
+  }
+
+  h1 {
+    font-size: 2em;
+    float: left;
+  }
+
+  &List {
+    float: left;
+    list-style-type: none;
+    line-height: 2rem;
+  }
+}

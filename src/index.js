@@ -62,16 +62,20 @@ const App = () => {
   };
 
   const filterCountries = () => {
-    setVisibleCountries(
-      countryList[0].filter(
-        ({ name, region, subregion, alpha2Code, alpha3Code }) =>
-          contains(name, currentSearchTerm) ||
-          contains(region, currentSearchTerm) ||
-          contains(subregion, currentSearchTerm) ||
-          contains(alpha2Code, currentSearchTerm) ||
-          contains(alpha3Code, currentSearchTerm)
-      )
-    );
+    try {
+      setVisibleCountries(
+        countryList[0].filter(
+          ({ name, region, subregion, alpha2Code, alpha3Code }) =>
+            contains(name, currentSearchTerm) ||
+            contains(region, currentSearchTerm) ||
+            contains(subregion, currentSearchTerm) ||
+            contains(alpha2Code, currentSearchTerm) ||
+            contains(alpha3Code, currentSearchTerm)
+        )
+      );
+    } catch {
+      console.log("Click Again");
+    }
   };
 
   const contains = (a, term) => {

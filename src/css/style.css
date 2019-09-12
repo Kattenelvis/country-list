@@ -1,3 +1,35 @@
+.showCountry {
+  background: white;
+  padding: 20px;
+  width: 80%;
+  height: 80%;
+  -webkit-box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
+  overflow: auto;
+  margin: auto;
+}
+
+.showCountry .imgContainer {
+  width: 50%;
+  margin: auto;
+}
+
+.showCountry .imgContainer img {
+  float: left;
+  max-width: 100%;
+}
+
+.showCountry h1 {
+  font-size: 2em;
+  float: left;
+}
+
+.showCountryList {
+  float: left;
+  list-style-type: none;
+  line-height: 2rem;
+}
+
 body {
   margin: 0;
   font-family: "Montserrat", "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -9,10 +41,11 @@ body {
   letter-spacing: 0.02em;
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
 }
 
 main {
-  padding-bottom: 3.2rem;
+  padding-bottom: 7rem;
 }
 
 .contentWrap {
@@ -42,9 +75,21 @@ main {
 
 .mainHeader .search {
   height: 23px;
-  width: 60%;
   margin: auto;
   margin-top: 68px;
+  width: 60%;
+}
+
+@media (max-width: 600px) {
+  .mainHeader .search {
+    width: 80%;
+  }
+}
+
+@media (max-width: 450px) {
+  .mainHeader .search {
+    width: 100%;
+  }
 }
 
 .mainHeader .search .searchBar {
@@ -81,11 +126,18 @@ main {
   margin-top: 70px;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(380px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  -ms-grid-columns: (minmax(360px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
   -o-object-fit: cover;
      object-fit: cover;
   padding-left: 0;
+}
+
+@media (max-width: 450px) {
+  .CountryDiv .coutryList {
+    -ms-grid-columns: 320px;
+        grid-template-columns: 320px;
+  }
 }
 
 .CountryDiv .coutryList .countryLi {
@@ -110,6 +162,18 @@ main {
   transition: -webkit-box-shadow 0.3s;
   transition: box-shadow 0.3s;
   transition: box-shadow 0.3s, -webkit-box-shadow 0.3s;
+}
+
+.CountryDiv .coutryList .countryLi ::-moz-selection {
+  background-color: transparent;
+}
+
+.CountryDiv .coutryList .countryLi ::selection {
+  background-color: transparent;
+}
+
+.CountryDiv .coutryList .countryLi ::-moz-selection {
+  background-color: transparent;
 }
 
 .CountryDiv .coutryList .countryLi:hover {
@@ -149,40 +213,6 @@ main {
   width: 40%;
   margin: auto;
   margin-bottom: 1em;
-}
-
-.showCountry {
-  background: white;
-  padding: 70px 70px;
-  width: 80%;
-  height: 80%;
-  -webkit-box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
-          box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.2);
-  overflow: auto;
-  margin: auto;
-}
-
-.showCountry img {
-  float: left;
-}
-
-.showCountry h1 {
-  font-size: 2em;
-  margin: auto;
-  float: right;
-}
-
-.showCountryList {
-  float: left;
-  list-style-type: none;
-}
-
-.showCountryList li:nth-child() {
-  color: red;
-}
-
-.showCountryList li ul {
-  border: none;
 }
 
 .btn {

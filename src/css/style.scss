@@ -1,4 +1,17 @@
 @import "./values";
+@import "./countryInt";
+
+@mixin mobile() {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin mobileSmall() {
+  @media (max-width: 450px) {
+    @content;
+  }
+}
 
 body {
   margin: 0;
@@ -11,10 +24,11 @@ body {
   letter-spacing: 0.02em;
   padding: 0;
   margin: 0;
+  overflow-x: hidden;
 }
 
 main {
-  padding-bottom: 3.2rem;
+  padding-bottom: 7rem;
 }
 
 .contentWrap {
@@ -41,7 +55,6 @@ main {
   width: 100%;
   height: 57px;
   left: 0px;
-  // top: 0px;
   color: white;
   background: #b5e1ff;
 }
@@ -50,9 +63,16 @@ main {
 .mainHeader {
   .search {
     height: 23px;
-    width: 60%;
     margin: auto;
     margin-top: 68px;
+
+    width: 60%;
+    @include mobile() {
+      width: 80%;
+    }
+    @include mobileSmall() {
+      width: 100%;
+    }
     .searchBar {
       height: 40px;
       width: 100%;
@@ -88,10 +108,15 @@ main {
     margin-top: 70px;
 
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    @include mobileSmall() {
+      grid-template-columns: 320px;
+    }
+
     object-fit: cover;
     padding-left: 0;
 
+    //Each individual country button
     .countryLi {
       margin: 10px;
       background: #fff;
@@ -103,7 +128,13 @@ main {
       cursor: pointer;
       box-shadow: 2px 1px 5px rgba(0, 0, 0, 00.2);
       transition: box-shadow 0.3s;
+      ::selection {
+        background-color: transparent;
+      }
 
+      ::-moz-selection {
+        background-color: transparent;
+      }
       &:hover {
         box-shadow: 1px 1px 3px #69c3ff;
       }
@@ -129,40 +160,6 @@ main {
         width: 40%;
         margin: auto;
         margin-bottom: 1em;
-      }
-    }
-  }
-}
-
-//The interface when you interact with a country
-.showCountry {
-  background: white;
-  padding: 70px 70px;
-  width: 80%;
-  height: 80%;
-  box-shadow: 2px 1px 5px rgba(0, 0, 0, 00.2);
-  overflow: auto;
-  margin: auto;
-  img {
-    float: left;
-  }
-
-  h1 {
-    font-size: 2em;
-    margin: auto;
-    float: right;
-  }
-
-  &List {
-    float: left;
-    list-style-type: none;
-    li {
-      &:nth-child() {
-        color: red;
-      }
-      ul {
-        border: none;
-        // list-style-type: none;
       }
     }
   }
