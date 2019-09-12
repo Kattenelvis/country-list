@@ -3,7 +3,7 @@ import axios from "axios";
 import "./css/style.css";
 import ReactDOM from "react-dom";
 import Footer from "./footer";
-// import { Header, onSearchValueChanged } from "./header/header.js";
+import Header from "./header/header.js";
 
 const countryList = [249];
 let currentSearchTerm = "";
@@ -100,9 +100,17 @@ const App = () => {
     return a.toLowerCase().includes(term.toLowerCase());
   };
 
+  document.addEventListener("DOMContentLoaded", e => {
+    const search = document.getElementsByClassName("search")[0].children[0];
+    search.addEventListener("input", e => {
+      onSearchValueChanged(e);
+    });
+  });
+
   return (
     <div className="contentWrap">
       <main>
+        <Header />
         <div className="header">
           <div className="topHeader">
             <div className="blueRect"></div>
@@ -112,7 +120,6 @@ const App = () => {
             <div className="search">
               <input
                 type="search"
-                onChange={onSearchValueChanged}
                 className="searchBar"
                 maxLength="100"
                 placeholder="Search among 249 countries and territories"

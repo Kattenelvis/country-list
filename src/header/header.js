@@ -1,13 +1,7 @@
 import React from "react";
 
-
-
-
 const Header = () => {
-  let x = 54;
-  return (
-
-  );
+  return <div>hello</div>;
 };
 
-// export default { Header, onSearchValueChanged };
+export default Header;
