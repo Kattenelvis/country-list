@@ -181,6 +181,10 @@ main {
   color: red;
 }
 
+.showCountryList li ul {
+  border: none;
+}
+
 .btn {
   border: none;
   background-color: #69c3ff;
